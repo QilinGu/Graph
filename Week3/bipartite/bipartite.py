@@ -1,15 +1,16 @@
 #Uses python3
 
 import sys
-import queue
+from collections import deque
 
 def bipartite(adj):
     #write your code here
     d = [-1] * len(adj)
     d[0] = 0
-    Q = [0]
+    Q = deque()
+    Q.append(0)
     while Q:
-        u = Q.pop(0)
+        u = Q.pop()
         for each in adj[u]:
             if d[each] == -1:
                 d[each] = d[u] + 1

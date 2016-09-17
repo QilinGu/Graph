@@ -1,16 +1,16 @@
 #Uses python3
 
 import sys
-
+from collections import deque
 
 def distance(adj, s, t):
     #write your code here
     d = [-1] * len(adj)
     d[s] = 0
-    Q = []
+    Q = deque()
     Q.append(s)
     while Q:
-        u = Q.pop(0)
+        u = Q.pop()
         for each in adj[u]:
             if d[each] == -1:
                 if each == t:
